@@ -1,5 +1,6 @@
 import {createStackNavigator, createAppContainer, createBottomTabNavigator} from "react-navigation"
 
+import Details from "../components/Details.react"
 import Welcome from "../components/Welcome.react"
 import Greeting from "../components/Greeting.react"
 
@@ -15,7 +16,8 @@ const AppNavigator = createStackNavigator({
     screen: TabNavigator,
     navigationOptions: {header: null}
   },
-  Greeting: {screen: Greeting}
+  Greeting: {screen: Greeting},
+  Details: {screen: Details}
 })
 
 export default createAppContainer(AppNavigator)
