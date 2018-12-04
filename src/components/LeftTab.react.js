@@ -1,11 +1,11 @@
 import React from "react"
 import {View, Text, StyleSheet} from "react-native"
 
-class Greeting extends React.Component {
+class LeftTab extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.welcome}>Hello My dude!</Text>
+        <Text style={styles.welcome}>Hello Right!</Text>
       </View>
     )
   }
@@ -25,4 +25,4 @@ const styles = StyleSheet.create({
   }
 })
 
-export default Greeting
+export default LeftTab

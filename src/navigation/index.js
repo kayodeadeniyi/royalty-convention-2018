@@ -1,14 +1,14 @@
 import {createStackNavigator, createAppContainer, createBottomTabNavigator} from "react-navigation"
 
-import Details from "../components/Details.react"
+import LeftTab from "../components/LeftTab.react"
+import RightTab from "../components/RightTab.react"
 import Welcome from "../components/Welcome.react"
-import Greeting from "../components/Greeting.react"
+import Details from "../components/Details.react"
 
 const TabNavigator = createBottomTabNavigator({
-  Home: {
-    screen: Welcome
-  },
-  Greeting: {screen: Greeting}
+  LeftTab: {screen: LeftTab},
+  Home: {screen: Welcome},
+  RightTab: {screen: RightTab}
 })
 
 const AppNavigator = createStackNavigator({
@@ -16,7 +16,6 @@ const AppNavigator = createStackNavigator({
     screen: TabNavigator,
     navigationOptions: {header: null}
   },
-  Greeting: {screen: Greeting},
   Details: {screen: Details}
 })
 
