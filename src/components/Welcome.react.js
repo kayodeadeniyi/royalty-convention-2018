@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
-import {StyleSheet, Text, View, TouchableOpacity} from 'react-native';
-import Icon from 'react-native-vector-icons/FontAwesome5'
+import {StyleSheet, Text, View, TouchableOpacity, Platform} from 'react-native';
+import Icon from 'react-native-vector-icons/MaterialCommunityIcons'
 
 
 export default class App extends Component {
@@ -8,26 +8,73 @@ export default class App extends Component {
     return (
       <View style={styles.container}>
         <View style={styles.scheduleContainer}>
-          <Text style={styles.schedule}>Schedule</Text>
+          <Text style={styles.schedule}>Royalty 2018 Convention</Text>
         </View>
 
         <TouchableOpacity
           style={styles.touchableOpacity}
           onPress={() => this.props.navigation.navigate("Details", {details: 'day one'})}
         >
-          <Text style={styles.textContainer}>Day One</Text>
+          <View style={styles.iconContainer}>
+            <Icon name='run-fast' size={15} />
+          </View>
+          <View style={styles.textContainer}>
+            <Text style={styles.title}>Day One</Text>
+            <Text style={styles.smallText}>Greater Works talk, Men talk, Quiz and Debate</Text>
+            <Text style={styles.smallText}>19th December</Text>
+          </View>
         </TouchableOpacity>
         <TouchableOpacity
           style={styles.touchableOpacity}
           onPress={() => this.props.navigation.navigate("Details", {details: 'day two'})}
         >
-          <Text style={styles.textContainer}>Day Two</Text>
+          <View style={styles.iconContainer}>
+            <Icon name='lightbulb-on-outline' size={15} />
+          </View>
+          <View style={styles.textContainer}>
+            <Text style={styles.title}>Day Two</Text>
+            <Text style={styles.smallText}>Greater Works talk, Men talk, Quiz and Debate</Text>
+            <Text style={styles.smallText}>20th December</Text>
+          </View>
         </TouchableOpacity>
         <TouchableOpacity
           style={styles.touchableOpacity}
           onPress={() => this.props.navigation.navigate("Details", {details: 'day three'})}
         >
-          <Text style={styles.textContainer}>Day Three</Text>
+          <View style={styles.iconContainer}>
+            <Icon name='security' size={15} />
+          </View>
+          <View style={styles.textContainer}>
+            <Text style={styles.title}>Day Three</Text>
+            <Text style={styles.smallText}>Marital Talks, Something and Nothing</Text>
+            <Text style={styles.smallText}>21st December</Text>
+          </View>
+        </TouchableOpacity>
+        <TouchableOpacity
+          style={styles.touchableOpacity}
+          onPress={() => this.props.navigation.navigate("Details", {details: 'day three'})}
+        >
+          <View style={styles.iconContainer}>
+            <Icon name='stethoscope' size={15} />
+          </View>
+          <View style={styles.textContainer}>
+            <Text style={styles.title}>Day Four</Text>
+            <Text style={styles.smallText}>Career, Academic, Medical and Dinner</Text>
+            <Text style={styles.smallText}>22nd December</Text>
+          </View>
+        </TouchableOpacity>
+        <TouchableOpacity
+          style={styles.touchableOpacity}
+          onPress={() => this.props.navigation.navigate("Details", {details: 'day three'})}
+        >
+          <View style={styles.iconContainer}>
+            <Icon name='home' size={15} />
+          </View>
+          <View style={styles.textContainer}>
+            <Text style={styles.title}>Day Five</Text>
+            <Text style={styles.smallText}>Marital Talks, Something and Nothing</Text>
+            <Text style={styles.smallText}>23rd December</Text>
+          </View>
         </TouchableOpacity>
       </View>
     );
@@ -39,18 +86,22 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#F5FCFF',
     margin: 10,
-    marginTop: 50
+    marginTop: 50,
+    paddingLeft: 20,
   },
   touchableOpacity: {
+    flex: 1,
     flexDirection: 'row',
-    alignItems: 'center'
+    borderLeftWidth: 1,
+    borderLeftColor: '#2196f3',
+    marginLeft: 30,
   },
   iconContainer: {
     width: 30,
     height: 30,
     borderRadius: 25,
     borderWidth: 1,
-    borderColor: '#222',
+    borderColor: '#2196f3',
     justifyContent: 'center',
     alignItems: 'center',
     marginLeft: -15,
@@ -63,9 +114,24 @@ const styles = StyleSheet.create({
   schedule: {
     textAlign: 'center',
     fontSize: 20,
+    fontFamily: Platform.OS === 'ios' ? 'System' : 'Roboto',
   },
   textContainer: {
-    fontSize: 20,
+    flex: 1,
+    alignItems: 'flex-start',
+    justifyContent: 'flex-start',
     margin: 10,
+    marginTop: 0,
+  },
+  title: {
+    fontFamily: Platform.OS === 'ios' ? 'System' : 'Roboto',
+    fontSize: 14,
+    marginBottom: 20,
+  },
+  smallText: {
+    fontFamily: Platform.OS === 'ios' ? 'System' : 'Roboto',
+    fontSize: 10,
+    marginBottom: 5,
+    color: '#5d5d5d',
   }
 });

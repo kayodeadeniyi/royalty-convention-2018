@@ -1,5 +1,5 @@
 import React from "react"
-import {View, Text, StyleSheet, ScrollView} from "react-native"
+import {View, Text, StyleSheet, ScrollView, Platform} from "react-native"
 import programDetails from '../program.js'
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons'
 
@@ -52,6 +52,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
   },
   schedule: {
+    fontFamily: Platform.OS === 'ios' ? 'System' : 'Roboto',
     textAlign: 'center',
     fontSize: 20,
     textTransform: 'capitalize',
@@ -76,11 +77,13 @@ const styles = StyleSheet.create({
     marginLeft: 30,
   },
   title: {
+    fontFamily: Platform.OS === 'ios' ? 'System' : 'Roboto',
     flex: 1,
     fontSize: 15,
     marginBottom: 10
   },
   smallText: {
+    fontFamily: Platform.OS === 'ios' ? 'System' : 'Roboto',
     flex: 1,
     fontSize: 10,
     marginBottom: 5,

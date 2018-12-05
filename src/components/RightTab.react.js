@@ -1,12 +1,18 @@
 import React from "react"
 import {View, Text, StyleSheet} from "react-native"
+import MapView from 'react-native-maps'
 
 class RightTab extends React.Component {
   render() {
     return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>Hello Left!</Text>
-      </View>
+      <MapView style={styles.container}
+        initialRegion={{
+          latitude: 37.78825,
+          longitude: -122.4324,
+          latitudeDelta: 0.0922,
+          longitudeDelta: 0.0421
+        }}
+      />
     )
   }
 }

@@ -8,7 +8,6 @@ class LeftTab extends React.Component {
         <Text style={styles.welcome}>Royalty 2018</Text>
         <Text style={styles.welcome}>Greater Works(John 14 : 12)</Text>
         <Text style={styles.welcome}>Greater Works</Text>
-        <Text style={styles.welcome}>This is the convocation of champions</Text>
         <Text style={styles.welcome}>Follow us on instagram @yfgstmary</Text>
       </View>
     )
