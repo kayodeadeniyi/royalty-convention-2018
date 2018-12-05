@@ -7,6 +7,7 @@ class Details extends React.Component {
   render() {
     const day = this.props.navigation.state.params.details
     const dayDetails = programDetails[day]
+    const title = day.split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')
 
     return (
       <View style={styles.container}>
@@ -14,7 +15,7 @@ class Details extends React.Component {
           <TouchableOpacity style={styles.icon} onPress={() => this.props.navigation.goBack()}>
             <Icon name='arrow-left' size={25} />
           </TouchableOpacity>
-          <Text style={styles.schedule}>{day}</Text>
+          <Text style={styles.schedule}>{title}</Text>
         </View>
         <ScrollView style={styles.container}>
           {
@@ -66,7 +67,6 @@ const styles = StyleSheet.create({
     fontFamily: Platform.OS === 'ios' ? 'System' : 'Roboto',
     textAlign: 'center',
     fontSize: 20,
-    textTransform: 'capitalize',
   },
   container: {
     flex: 1,

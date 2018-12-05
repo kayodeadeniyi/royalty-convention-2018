@@ -137,6 +137,7 @@ android {
 }
 
 dependencies {
+    configurations.all {exclude group: 'com.android.support', module: 'support-v4'}
     compile project(':react-native-vector-icons')
     compile project(':react-native-maps')
     compile project(':react-native-gesture-handler')

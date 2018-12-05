@@ -10,13 +10,15 @@ class RightTab extends React.Component {
           latitude: 6.565216548380208,
           longitude: 3.340396285057068,
           latitudeDelta: 0.0222,
-           longitudeDelta: 0.0021,
+          longitudeDelta: 0.0021,
         }}
       >
         <Marker coordinate={
           {
             latitude: 6.565216548380208,
-            longitude: 3.340396285057068
+            longitude: 3.340396285057068,
+            latitudeDelta: 0.0222,
+            longitudeDelta: 0.0021,
           }
         } />
       </MapView>
