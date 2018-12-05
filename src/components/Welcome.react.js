@@ -7,10 +7,6 @@ export default class App extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <View style={styles.scheduleContainer}>
-          <Text style={styles.schedule}>Royalty 2018 Convention</Text>
-        </View>
-
         <TouchableOpacity
           style={styles.touchableOpacity}
           onPress={() => this.props.navigation.navigate("Details", {details: 'day one'})}
@@ -86,8 +82,9 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#F5FCFF',
     margin: 10,
-    marginTop: 50,
+    marginTop: 0,
     paddingLeft: 20,
+    paddingTop: 20,
   },
   touchableOpacity: {
     flex: 1,
@@ -106,15 +103,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     marginLeft: -15,
     backgroundColor: '#fff',
-  },
-  scheduleContainer: {
-    padding: 10,
-    marginBottom: 10
-  },
-  schedule: {
-    textAlign: 'center',
-    fontSize: 20,
-    fontFamily: Platform.OS === 'ios' ? 'System' : 'Roboto',
   },
   textContainer: {
     flex: 1,

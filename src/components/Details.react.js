@@ -1,5 +1,5 @@
 import React from "react"
-import {View, Text, StyleSheet, ScrollView, Platform} from "react-native"
+import {View, Text, StyleSheet, ScrollView, Platform, TouchableOpacity} from "react-native"
 import programDetails from '../program.js'
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons'
 
@@ -11,6 +11,9 @@ class Details extends React.Component {
     return (
       <View style={styles.container}>
         <View style={styles.scheduleContainer}>
+          <TouchableOpacity style={styles.icon} onPress={() => this.props.navigation.goBack()}>
+            <Icon name='arrow-left' size={25} />
+          </TouchableOpacity>
           <Text style={styles.schedule}>{day}</Text>
         </View>
         <ScrollView style={styles.container}>
@@ -35,10 +38,18 @@ class Details extends React.Component {
 }
 
 const styles = StyleSheet.create({
+  icon: {
+    left: 10,
+    bottom: 15,
+    position: 'absolute',
+  },
   scheduleContainer: {
-    padding: 10,
-    marginBottom: 10,
-    backgroundColor: '#2196f3',
+    flexDirection: 'row',
+    height: 100,
+    justifyContent: 'center',
+    backgroundColor: '#F5FCFF',
+    alignItems: 'flex-end',
+    padding: 20,
   },
   iconContainer: {
     width: 30,
@@ -56,7 +67,6 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     fontSize: 20,
     textTransform: 'capitalize',
-    color: '#fff'
   },
   container: {
     flex: 1,

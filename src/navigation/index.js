@@ -1,5 +1,5 @@
 import React from "react"
-import {Text} from "react-native"
+import {View, Text, StyleSheet} from "react-native"
 import {createStackNavigator, createAppContainer} from "react-navigation"
 import { createBottomTabNavigator, BottomTabBar } from 'react-navigation-tabs';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons'
@@ -8,6 +8,7 @@ import LeftTab from "../components/LeftTab.react"
 import RightTab from "../components/RightTab.react"
 import Welcome from "../components/Welcome.react"
 import Details from "../components/Details.react"
+import AppHeader from "../components/AppHeader.react"
 
 const TabNavigator = createBottomTabNavigator({
   Info: {
@@ -27,6 +28,7 @@ const TabNavigator = createBottomTabNavigator({
   Map: {
     screen: RightTab,
     navigationOptions: {
+      header: AppHeader,
       tabBarLabel: ({focused}) => focused ? <Text style={{color: '#fff'}}>Map</Text> : null,
       tabBarIcon: ({focused, tintColor}) => <Icon name='map-marker' color={tintColor} size={focused ? 30 : 25} />
     }
@@ -57,9 +59,12 @@ const TabNavigator = createBottomTabNavigator({
 const AppNavigator = createStackNavigator({
   Home: {
     screen: TabNavigator,
-    navigationOptions: {header: null}
+    navigationOptions: {header: AppHeader}
   },
-  Details: {screen: Details}
+  Details: {
+    screen: Details,
+    navigationOptions: {header: null}
+  }
 })
 
 export default createAppContainer(AppNavigator)
