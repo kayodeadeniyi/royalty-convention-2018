@@ -13,7 +13,7 @@ class Details extends React.Component {
       <View style={styles.container}>
         <View style={styles.scheduleContainer}>
           <TouchableOpacity style={styles.icon} onPress={() => this.props.navigation.goBack()}>
-            <Icon name='arrow-left' size={25} />
+            <Icon style={{padding: 15}} name='arrow-left' size={25} />
           </TouchableOpacity>
           <Text style={styles.schedule}>{title}</Text>
         </View>
@@ -40,8 +40,8 @@ class Details extends React.Component {
 
 const styles = StyleSheet.create({
   icon: {
-    left: 10,
-    bottom: 15,
+    left: 0,
+    bottom: 0,
     position: 'absolute',
   },
   scheduleContainer: {
