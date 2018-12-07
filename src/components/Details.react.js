@@ -1,13 +1,13 @@
 import React from "react"
 import {View, Text, StyleSheet, ScrollView, Platform, TouchableOpacity} from "react-native"
-import programDetails from '../program.js'
+import programDetails from '../program'
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons'
 
 class Details extends React.Component {
   render() {
     const day = this.props.navigation.state.params.details
-    const dayDetails = programDetails[day]
-    const title = day.split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')
+    const dayDetails = programDetails[day]["long"]
+    const title = programDetails[day]["short"]["title"]
 
     return (
       <View style={styles.container}>

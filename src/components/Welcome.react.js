@@ -1,77 +1,37 @@
 import React, {Component} from 'react';
 import {StyleSheet, Text, View, TouchableOpacity, Platform} from 'react-native';
+import programDetails from '../program'
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons'
 
 
 export default class App extends Component {
+  goToDetails(details) {
+    this.props.navigation.navigate("Details", {details: details})
+  }
+
   render() {
+    const days = Object.keys(programDetails)
+
     return (
       <View style={styles.container}>
-        <TouchableOpacity
-          style={styles.touchableOpacity}
-          onPress={() => this.props.navigation.navigate("Details", {details: 'day one'})}
-        >
-          <View style={styles.iconContainer}>
-            <Icon name='run-fast' size={15} />
-          </View>
-          <View style={styles.textContainer}>
-            <Text style={styles.title}>Day One</Text>
-            <Text style={styles.smallText}>Greater Works talk, Men talk, Quiz and Debate</Text>
-            <Text style={styles.smallText}>19th December</Text>
-          </View>
-        </TouchableOpacity>
-        <TouchableOpacity
-          style={styles.touchableOpacity}
-          onPress={() => this.props.navigation.navigate("Details", {details: 'day two'})}
-        >
-          <View style={styles.iconContainer}>
-            <Icon name='lightbulb-on-outline' size={15} />
-          </View>
-          <View style={styles.textContainer}>
-            <Text style={styles.title}>Day Two</Text>
-            <Text style={styles.smallText}>Greater Works talk, Men talk, Quiz and Debate</Text>
-            <Text style={styles.smallText}>20th December</Text>
-          </View>
-        </TouchableOpacity>
-        <TouchableOpacity
-          style={styles.touchableOpacity}
-          onPress={() => this.props.navigation.navigate("Details", {details: 'day three'})}
-        >
-          <View style={styles.iconContainer}>
-            <Icon name='security' size={15} />
-          </View>
-          <View style={styles.textContainer}>
-            <Text style={styles.title}>Day Three</Text>
-            <Text style={styles.smallText}>Marital Talks, Something and Nothing</Text>
-            <Text style={styles.smallText}>21st December</Text>
-          </View>
-        </TouchableOpacity>
-        <TouchableOpacity
-          style={styles.touchableOpacity}
-          onPress={() => this.props.navigation.navigate("Details", {details: 'day three'})}
-        >
-          <View style={styles.iconContainer}>
-            <Icon name='stethoscope' size={15} />
-          </View>
-          <View style={styles.textContainer}>
-            <Text style={styles.title}>Day Four</Text>
-            <Text style={styles.smallText}>Career, Academic, Medical and Dinner</Text>
-            <Text style={styles.smallText}>22nd December</Text>
-          </View>
-        </TouchableOpacity>
-        <TouchableOpacity
-          style={styles.touchableOpacity}
-          onPress={() => this.props.navigation.navigate("Details", {details: 'day three'})}
-        >
-          <View style={styles.iconContainer}>
-            <Icon name='home' size={15} />
-          </View>
-          <View style={styles.textContainer}>
-            <Text style={styles.title}>Day Five</Text>
-            <Text style={styles.smallText}>Marital Talks, Something and Nothing</Text>
-            <Text style={styles.smallText}>23rd December</Text>
-          </View>
-        </TouchableOpacity>
+        {
+          days.map(day => {
+            const daySummary = programDetails[day]["short"]
+
+            return(
+              <TouchableOpacity style={styles.touchableOpacity} onPress={() => this.goToDetails(day)} key={day}>
+                <View style={styles.iconContainer}>
+                  <Icon name={daySummary["icon"]} size={15} />
+                </View>
+                <View style={styles.textContainer}>
+                  <Text style={styles.title}>{daySummary["title"]}</Text>
+                  <Text style={styles.smallText}>{daySummary["highlights"]}</Text>
+                  <Text style={styles.smallText}>{daySummary["date"]}</Text>
+                </View>
+              </TouchableOpacity>
+            )
+          })
+        }
       </View>
     );
   }
