@@ -14,14 +14,14 @@ const TabNavigator = createBottomTabNavigator({
   Info: {
     screen: LeftTab,
     navigationOptions: {
-      tabBarLabel: ({focused}) => focused ? <Text style={{color: '#fff'}}>Info</Text> : null,
+      tabBarLabel: ({focused}) => focused ? <Text style={{color: '#fff', textAlign: 'center'}}>Info</Text> : null,
       tabBarIcon: ({tintColor}) => <Icon name='information-outline' color={tintColor} size={32} />
     }
   },
   Home: {
     screen: Welcome,
     navigationOptions: {
-      tabBarLabel: ({focused}) => focused ? <Text style={{color: '#fff'}}>Schedule</Text> : null,
+      tabBarLabel: ({focused}) => focused ? <Text style={{color: '#fff', textAlign: 'center'}}>Schedule</Text> : null,
       tabBarIcon: ({tintColor}) => <Icon name='calendar' color={tintColor} size={32} />
     }
   },
@@ -29,7 +29,7 @@ const TabNavigator = createBottomTabNavigator({
     screen: RightTab,
     navigationOptions: {
       header: AppHeader,
-      tabBarLabel: ({focused}) => focused ? <Text style={{color: '#fff'}}>Map</Text> : null,
+      tabBarLabel: ({focused}) => focused ? <Text style={{color: '#fff', textAlign: 'center'}}>Map</Text> : null,
       tabBarIcon: ({focused, tintColor}) => <Icon name='map-marker' color={tintColor} size={focused ? 30 : 25} />
     }
   }
@@ -41,7 +41,7 @@ const TabNavigator = createBottomTabNavigator({
     return (
       <BottomTabBar
         {...props}
-        style={{ paddingTop: 20, backgroundColor: backgroundColors[props.navigation.state.index], alignItems: 'center', justifyContent: 'center' }}
+        style={{ height: 80, paddingBottom: 10, paddingTop: 20, backgroundColor: backgroundColors[props.navigation.state.index], alignItems: 'center', justifyContent: 'center' }}
       />
     );
   },
@@ -51,8 +51,7 @@ const TabNavigator = createBottomTabNavigator({
     labelStyle: {
       fontSize: 14,
     },
-    showIcon: true,
-    tabStyle: {height: 50}
+    showIcon: true
   }
 })
 

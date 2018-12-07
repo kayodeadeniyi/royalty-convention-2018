@@ -17,7 +17,7 @@ class Details extends React.Component {
           </TouchableOpacity>
           <Text style={styles.schedule}>{title}</Text>
         </View>
-        <ScrollView style={styles.container}>
+        <ScrollView style={[styles.container, {marginTop: 20}]}>
           {
             dayDetails.map(program => (
               <View style={styles.listContainer} key={program['title']}>
@@ -46,11 +46,16 @@ const styles = StyleSheet.create({
   },
   scheduleContainer: {
     flexDirection: 'row',
-    height: 100,
+    height: Platform.OS === 'ios' ? 100 : 70,
     justifyContent: 'center',
     backgroundColor: '#F5FCFF',
     alignItems: 'flex-end',
     padding: 20,
+    shadowOpacity: 0.75,
+    shadowRadius: 5,
+    shadowColor: '#aaa',
+    shadowOffset: { height: 0, width: 0 },
+    elevation: 3,
   },
   iconContainer: {
     width: 30,
